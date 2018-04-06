@@ -13,7 +13,7 @@
 
 use ORM\User;
 use Faker\Factory as Faker;
-Route::get('/create', function () {
+/*Route::get('/create', function () {
   $faker=Faker::create();
   
     $user=User::create([
@@ -43,4 +43,20 @@ Route::get('/update/{id}', function ($id) {
 Route::get('/delete/{id}', function($id){
 	User::find($id)->delete();
 	return 'eliminado';
-});
+});*/
+Route::get('/',[
+    'as'=>'home',
+    'uses'=>'PagesController@home'
+] );
+
+Route::get('/all',[
+'as'=>'methods',
+'uses'=>'QueryController@getAll']);
+
+Route::get('/user/{id}',[
+'as'=>'getUser',
+'uses'=>'QueryController@getUser']);
+
+Route::get('/users/{gender}',[
+'as'=>'getByGender',
+'uses'=>'QueryController@getByGender']);
