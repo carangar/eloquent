@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use ORM\User;
+Route::get('/create', function () {
+    $user=User::create([
+    	'name'=>'yolo',
+    	'email'=>'yolerino@mail.com',
+    	'password'=>bcrypt('asdad'),
+    	'gender'=>'m',
+    	'description'=>'some description'
+    ]);
+    return "usuario guardado";
+});
+Route::get('/update/{id}', function ($id) {
+    $user=User::find($id);
+    $user->name='hello there';
+    $user->save();
+    return "usuario actualizado";
 });
