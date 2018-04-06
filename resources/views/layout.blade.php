@@ -26,21 +26,7 @@
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li>
-							<a href="{{route('methods')}}">
-								Todos los usuarios (ALL)
-							</a>
-						</li>
-						<li>
-							<a href="{{route('getByGender','f')}}">
-								Todos de usuarios (Femeninos)
-							</a>
-						<li>
-							<a href="{{route('getByGender','m')}}">
-								Todos de usuarios (Masculino)
-							</a>
-						</li>						
-						</li>						
+					@include('partials.menu-query')
 					</ul>
 				</li>
 			</ul>

@@ -27,4 +27,20 @@ class QueryController extends Controller
     		$users=User::where('gender',$gender)->get();
     		return view('query.methods' ,compact('title','users','gender'));
     	}
+        public function getCustom(){
+            $users=User::get(['id','name','description','email']);
+            $title= 'Detalle Simplificado de usuarios';
+            return view('query.methods',compact('title','users'));
+        }
+        public function delete($id){
+            $user=User::find($id);
+            $user->delete();
+            return view('pages.delete');
+        }
+        public function getList(){
+            $title="Lista de usuarios Ascendente";
+            $users=User::orderBy('name','ASC')
+                            ->pluck('name','id')->all();
+            return view('query.lists',compact('users','title'));
+        }
 }

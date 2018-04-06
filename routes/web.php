@@ -60,3 +60,17 @@ Route::get('/user/{id}',[
 Route::get('/users/{gender}',[
 'as'=>'getByGender',
 'uses'=>'QueryController@getByGender']);
+
+Route::get('/get-Custom',[
+    'as'=>'getCustom',
+    'uses'=>'QueryController@getCustom'
+
+]);
+Route::delete('/delete/{id}',[
+'as'=>'delete',
+'uses'=>'QueryController@delete'
+]);
+
+Route::get('/lists',[
+'as'=>'getList',
+'uses'=>'QueryController@getList']);

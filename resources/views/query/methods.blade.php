@@ -8,15 +8,11 @@
 			
 			<thead>
 				<tr>
-					<th>ID</th>
-					<th>Nombre</th>
-					<th>Email</th>
-					<th>Genero</th>
-					<th>Descripcion</th>
+					@include('partials.head-list-users')
 				</tr>
 			</thead>
 			<tbody>
-				@include('query.partials.list-users')
+				@include('partials.list-users')
 			</tbody>
 		</table>
 	</div>
