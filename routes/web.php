@@ -12,19 +12,35 @@
 */
 
 use ORM\User;
+use Faker\Factory as Faker;
 Route::get('/create', function () {
+  $faker=Faker::create();
+  
     $user=User::create([
-    	'name'=>'yolo',
-    	'email'=>'yolerino@mail.com',
+    	'name'=>$faker->name,
+    	'email'=>$faker->email,
     	'password'=>bcrypt('asdad'),
-    	'gender'=>'m',
-    	'description'=>'some description'
+    	'gender'=>$faker->randomElement(['f','m']),
+    	'description'=>$faker->text(255)
     ]);
-    return "usuario guardado";
+    return $user;
 });
+
+Route::get('/read/{id}', function($id){
+	return User::find($id);
+});
+
 Route::get('/update/{id}', function ($id) {
+	$faker=Faker::create();
+
     $user=User::find($id);
     $user->name='hello there';
+    $user->description=$faker->text(40);
     $user->save();
-    return "usuario actualizado";
+    return $user;
+});
+
+Route::get('/delete/{id}', function($id){
+	User::find($id)->delete();
+	return 'eliminado';
 });
