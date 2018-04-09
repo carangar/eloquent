@@ -74,3 +74,6 @@ Route::delete('/delete/{id}',[
 Route::get('/lists',[
 'as'=>'getList',
 'uses'=>'QueryController@getList']);
+Route::get('/paginate',[
+    'as'=>'paginate',
+    'uses'=>'QueryController@Paginate']);

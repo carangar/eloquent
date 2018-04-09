@@ -23,4 +23,10 @@
 				Lista de usuarios Ascendente
 			</a>
 
-	</li>					
+	</li>
+		<li>
+			<a href="{{route('paginate')}}">
+				PAGINACION
+			</a>
+
+	</li>						

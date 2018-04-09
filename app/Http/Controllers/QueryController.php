@@ -8,8 +8,8 @@ class QueryController extends Controller
 {
     //
         public function getAll(){
-    	$users= User::get();
-    	$title="Lista de todos los usuarios";
+        	$users= User::get();
+    	   $title="Lista de todos los usuarios";
     	return view('query.methods',compact('title','users'));
     	}
     	public function getUser($id){
@@ -42,5 +42,10 @@ class QueryController extends Controller
             $users=User::orderBy('name','ASC')
                             ->pluck('name','id')->all();
             return view('query.lists',compact('users','title'));
+        }
+        public function paginate(){
+            $users= User::orderBy('id','DESC')->paginate();
+            $title="Lista de todos los usuarios";
+        return view('query.paginate',compact('title','users'));
         }
 }
